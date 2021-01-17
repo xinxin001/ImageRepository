@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple image repository focused on pet images, created with Ruby on Rails. Create your account, and share your favorite pet pictures with the world!
 
-Things you may want to cover:
+* How to run the test suite:
+- npm i
+- bundle install --without production
+- rails s
 
-* Ruby version
+* Deployment instructions (heroku):
+- npm i
+- bundle install --without production
+- git push heroku main
+- heroku run rails db:migrate
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Features:
+- Create your own account!
+- Add your favorite pet pictures and friend information to your collection, and share them to the world!
