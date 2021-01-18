@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Global Repository</h1>
+<h1><%= current_user.username %>'s Personal Repository</h1>
 
 <table class="table-striped table table-bordered table-hover">
   <thead class="table-dark">
@@ -8,23 +6,28 @@
       <th>Preview</th>
       <th>Title</th>
       <th>Caption</th>
-      <th colspan="2"></th>
+      <th>Uploader</th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @pictures.each do |picture| %>
+      <% if picture.user == current_user %>
       <tr>
         <td><%= link_to image_tag(picture.image, style:"width:auto;  height:150px", class:"img-thumbnail img-fluid" ), picture %></td>
         <td><%= picture.title %></td>
         <td><%= picture.caption %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= picture.username %></td>
+        <td><%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Picture', new_picture_path %>
+<% else %>
+<% end %>

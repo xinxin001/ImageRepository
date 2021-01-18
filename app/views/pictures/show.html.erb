@@ -1,17 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="card" style="width: 45rem;">
+  
 
-<p>
-  <strong>Title:</strong>
-  <%= @picture.title %>
-</p>
+  <div style="height:auto">
+  <%= image_tag(@picture.image, style:'width:100%') %>
+  </div>
 
-<div style="width:400px;  height:auto">
-<%= image_tag(@picture.image, style:'width:100%') %>
-</div>
-<p>
-  <strong>Caption:</strong>
-  <%= @picture.caption %>
-</p>
+  <div class="card-body">
+    <h5 class="card-title">
+      <strong>Title:</strong>
+      <%= @picture.title %>
+    </h5>
+    <p class="card-text">
+      <strong>Caption:</strong>
+      <%= @picture.caption %>
+    </p>
+    <p class="card-text">
+      <strong>Uploader:</strong>
+      <%= @picture.username %>
+    </p>
+  </div>
+  
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+ </div>
+<br/>
+<% if @picture.user == current_user %>
+  <%= link_to 'Edit', edit_picture_path(@picture), class:"btn btn-secondary" %> |
+<% end %>
+<%= link_to 'Back', pictures_path, class:"btn btn-dark" %>

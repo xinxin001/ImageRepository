@@ -1,2 +1,34 @@
-<h1>Hello World</h1>
-This is my first Rails Webpage...
+<% if user_signed_in? %>
+  Welcome back <%= current_user.username %>!
+<% else %>
+  Sign up to share the cuteness of your pet to the world!
+<% end %>
+<h1>Global Repository</h1>
+
+<table class="table-striped table table-bordered table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Preview</th>
+      <th>Title</th>
+      <th>Caption</th>
+      <th>Uploader</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pictures.each do |picture| %>
+      <tr>
+        <td><%= link_to image_tag(picture.image, style:"width:auto;  height:150px", class:"img-thumbnail img-fluid" ), picture %></td>
+        <td><%= picture.title %></td>
+        <td><%= picture.caption %></td>
+        <td><%= picture.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? %>
+  <%= link_to 'New Picture', new_picture_path %>
+<% else %>
+<% end %>
