@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   Welcome back <%= current_user.username %>!
 <% else %>
-  Sign up to share the cuteness of your pet to the world!
+  Sign up now to share your cute pet pictures to the world!
 <% end %>
 <h1>Global Repository</h1>
 
@@ -29,6 +29,6 @@
 
 <br>
 <% if user_signed_in? %>
-  <%= link_to 'New Picture', new_picture_path %>
+  <%= link_to 'New Picture', new_picture_path, class:"btn btn-secondary" %>
 <% else %>
 <% end %>

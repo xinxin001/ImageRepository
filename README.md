@@ -1,6 +1,6 @@
 # README
 
-A simple image repository focused on pet images, created with Ruby on Rails. Create your account, and share your favorite pet pictures with the world!
+A simple image repository focused on pet images, created with Ruby on Rails and Bootstrap. Create your account, and share your favorite pet pictures with the world!
 
 * How to run the test suite:
 - npm i
